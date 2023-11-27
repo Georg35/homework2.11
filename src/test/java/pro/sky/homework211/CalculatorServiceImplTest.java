@@ -12,7 +12,6 @@ public class CalculatorServiceImplTest {
     @Test
 
     public void testDivideWillThrowExceptionWhenDivideOnZero() {
-        //CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
         assertThrows(IllegalArgumentException.class,
                 () -> {
                     calculatorService.divide(10, 0);
