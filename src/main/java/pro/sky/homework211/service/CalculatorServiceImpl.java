@@ -10,22 +10,23 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
 
-    public int summa(int usnum1, int usnum2) {
+    public Integer summa(Integer usnum1, Integer usnum2) {
         return usnum1 + usnum2;
     }
 
-    public int minus(int usnum1, int usnum2) {
+    public Integer minus(Integer usnum1, Integer usnum2) {
         return usnum1 - usnum2;
     }
 
-    public int multiply(int usnum1, int usnum2) {
+    public Integer multiply(Integer usnum1, Integer usnum2) {
         return usnum1 * usnum2;
     }
-    public int divide(int usnum1, int usnum2) {
+
+    public Double divide(Integer usnum1, Integer usnum2) {
         if (usnum2 == 0) {
             throw new IllegalArgumentException("На ноль делить нельзя!");}
 
         else
-            return usnum1 / usnum2;
+            return usnum1.doubleValue() / usnum2.doubleValue();
     }
 }

@@ -1,76 +1,48 @@
 package pro.sky.homework211;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Equals;
 import pro.sky.homework211.service.CalculatorServiceImpl;
 import pro.sky.homework211.service.CalculatorService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorServiceImplTest {
-    CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
+   public final CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
 
     @Test
-
-    public void testDivideWillThrowExceptionWhenDivideOnZero() {
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    calculatorService.divide(10, 0);
-                });
+    void welcome() {
+        String expected = "Добро пожаловать в калькулятор";
+        assertEquals(expected, calculatorService.showWelcome());
     }
 
     @Test
-    public void testSumma() {
-
-        assertNotNull(calculatorService.summa(4, 5));
-
+    void summa() {
+        int expekted = 15;
+        assertEquals(expekted, calculatorService.summa(5, 10));
     }
 
     @Test
-    public void summaContains() {
-
-        assertTrue(calculatorService.summa(4, 5).contains("" + (4 + 5)));
-
+    void minus() {
+        int expekted = -5;
+        assertEquals(expekted, calculatorService.minus(5, 10));
     }
 
     @Test
-    public void testMinus() {
-
-        assertNotNull(calculatorService.minus(7, 5));
-
+    void multiply() {
+        int expekted = 50;
+        assertEquals(expekted, calculatorService.multiply(5, 10));
     }
 
     @Test
-    public void minusContains() {
-
-        assertTrue(calculatorService.minus(7, 5).contains((7 - 5) + ""));
-
+    void dividePositive() {
+        double expected = 1;
+        assertEquals(expected, calculatorService.divide(5, 5));
     }
 
     @Test
-    public void testMultiply() {
-
-        assertNotNull(calculatorService.multiply(4, 5));
-
+    void divideNegative() {
+        assertThrows(IllegalArgumentException.class, () -> calculatorService.divide(10, 0));
     }
 
-    @Test
-    public void testMultiplyContains() {
-
-        assertTrue(calculatorService.multiply(4, 5).contains("" + (4 * 5)));
-
     }
-
-    @Test
-    public void testDivide() {
-
-        assertNotNull(calculatorService.divide(5, 5));
-
-    }
-
-    @Test
-    public void testDivideContains() {
-
-        assertTrue(calculatorService.divide(5, 5).contains("" + (5 / 5)));
-
-    }
-}

@@ -20,22 +20,26 @@ public class CalculatorController {
     }
 
     @GetMapping(path = "/plus")
-    public String summa(@RequestParam("num1") int usnum1, @RequestParam("num2") int usnum2){
-        return usnum1 + " + " + usnum2 + " = " + (usnum1 + usnum2);
+    public String summa(@RequestParam("num1") Integer usnum1, @RequestParam("num2") Integer usnum2){
+        Integer result = calculatorService.summa(usnum1, usnum2);
+        return usnum1 + " + " + usnum2 + " = " + result;
     }
 
     @GetMapping(path = "/minus")
-    public String minus(@RequestParam("num1") int usnum1,@RequestParam("num2")  int usnum2){
-        return usnum1 + " - " + usnum2 + " = " + (usnum1 - usnum2);
+    public String minus(@RequestParam("num1") Integer usnum1,@RequestParam("num2")  Integer usnum2){
+        Integer result = calculatorService.minus(usnum1, usnum2);
+        return usnum1 + " - " + usnum2 + " = " + result;
     }
 
     @GetMapping(path = "/multiply")
-    public String multiply(@RequestParam("num1") int usnum1,@RequestParam("num2")  int usnum2){
-        return usnum1 + " * " + usnum2 + " = " + (usnum1 * usnum2);
+    public String multiply(@RequestParam("num1") Integer usnum1,@RequestParam("num2")  Integer usnum2){
+        Integer result = calculatorService.multiply(usnum1, usnum2);
+        return usnum1 + " * " + usnum2 + " = " + result;
     }
 
     @GetMapping(path = "/divide")
-    public String divide(@RequestParam("num1") int usnum1,@RequestParam("num2")  int usnum2){
-        return usnum1 + " / " + usnum2 + " = " + (usnum1 / usnum2);
+    public String divide(@RequestParam("num1") Integer usnum1,@RequestParam("num2")  Integer usnum2){
+        Double result = calculatorService.divide(usnum1, usnum2);
+        return usnum1 + " / " + usnum2 + " = " + result;
     }
 }
